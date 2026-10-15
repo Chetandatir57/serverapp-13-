@@ -21,12 +21,10 @@ public class MainActivity extends Activity {
 
     private static final String ERROR_HTML = "<html><body style='margin:0;background:#0b1020;color:#eaf0ff;font-family:sans-serif;"
             + "display:flex;align-items:center;justify-content:center;height:100vh;text-align:center'><div style='padding:24px'>"
-            + "<h2>Cannot reach the server</h2><p style='color:#8f9bbd'>Check the phone's internet, and that the laptop is on "
-            + "and the controller is running.</p>"
+            + "<h2>Server is offline</h2><p style='color:#8f9bbd'>The laptop is off or still starting. Try again in a moment.</p>"
             + "<button style='font-size:17px;padding:14px 22px;margin:6px;border:0;border-radius:12px;background:#2f8cff;color:#fff' "
-            + "onclick='AndroidApp.retry()'>Try again</button><br>"
-            + "<button style='font-size:15px;padding:12px 18px;margin:6px;border:1px solid #5bd0ff;border-radius:12px;background:none;color:#9fd8ff' "
-            + "onclick='AndroidApp.changeUrl()'>Change server address</button></div></body></html>";
+            + "onclick='AndroidApp.retry()'>Try again</button>"
+            + "</div></body></html>";
 
     private WebView web;
     private SharedPreferences prefs;
