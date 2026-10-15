@@ -86,7 +86,7 @@ public class MainActivity extends Activity {
 
     /** The saved value is either a full https link (old way) or a one-time "link code". The laptop publishes its current link under that code. */
     private void load() {
-        final String u = prefs.getString("url", "").trim();
+        final String u = prefs.getString("url", getString(R.string.default_url)).trim();
         if (u.isEmpty()) { askUrl(false); return; }
         if (u.startsWith("http://") || u.startsWith("https://")) { web.loadUrl(u); return; }
         new Thread(() -> {
