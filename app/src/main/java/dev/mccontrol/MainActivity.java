@@ -74,6 +74,20 @@ public class MainActivity extends Activity {
 
         if (savedInstanceState != null) web.restoreState(savedInstanceState);
         else load();
+        startNotify();
+    }
+
+    /** Asks once for the notification permission and starts the background listener for tournament news. */
+    private void startNotify() {
+        try {
+            if (Build.VERSION.SDK_INT >= 33 && checkSelfPermission("android.permission.POST_NOTIFICATIONS") != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[]{"android.permission.POST_NOTIFICATIONS"}, 11);
+            }
+            android.content.Intent s = new android.content.Intent(this, NotifyService.class);
+            if (Build.VERSION.SDK_INT >= 26) startForegroundService(s);
+            else startService(s);
+        } catch (Exception ignored) {
+        }
     }
 
     private String address() {
